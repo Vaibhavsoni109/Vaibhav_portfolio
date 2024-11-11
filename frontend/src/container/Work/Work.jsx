@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react'
-import './Work.scss'
-import {AiFillEye,AiFillGithub} from 'react-icons/ai'
-import {animate, motion} from 'framer-motion';
-import AppWrap from '../../wrapper/AppWrap';
-import {urlFor,client} from '../../client.js'
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { AiFillEye, AiFillGithub } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 
+// import { AppWrap } from '../../wrapper';
+import { urlFor, client } from '../../client';
+import './Work.scss';
+import AppWrap from '../../wrapper/AppWrap';
 
 const Work = () => {
-  const [activeFilter, setactiveFilter] = useState('All')
-  const [animateCard, setanimateCard] = useState({y:0,opacity:1});
-  const [Works, setWorks] = useState([]);
-  const [FilterWork, setFilterWork] = useState([])
+  const [works, setWorks] = useState([]);
+  const [filterWork, setFilterWork] = useState([]);
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+
   useEffect(() => {
     const query = '*[_type == "works"]';
 
@@ -20,29 +21,47 @@ const Work = () => {
       setFilterWork(data);
     });
   }, []);
-  
-  const handleWorkFilter=(item)=>{
 
-  }
+  const handleWorkFilter = (item) => {
+    setActiveFilter(item);
+    setAnimateCard([{ y: 100, opacity: 0 }]);
+
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+
+      if (item === 'All') {
+        setFilterWork(works);
+        
+      } else {
+        setFilterWork(works.filter((work) => Array.isArray(work.tags) && work.tags.includes(item)));
+
+        console.log(works)
+      }
+    }, 500);
+  };
+
   return (
     <>
-         <h2 className="head-text">My Creative <span>Portfolio</span> <span>Section</span></h2>
-        <div className="app__work-filter">
-          {["All",'UI/UX','Web App','Mobile App','React Js'].map((item,index)=>(
-            <div
+      <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
+
+      <div className="app__work-filter">
+        {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
+          <div
             key={index}
-            onClick={()=>handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${activeFilter===item? 'item-active':' '}`}>
-{item}
-            </div>
-          ))}
-        </div>
-        <motion.div
+            onClick={() => handleWorkFilter(item)}
+            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+
+      <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__work-portfolio"
       >
-        {FilterWork.map((work, index) => (
+        {filterWork.map((work, index) => (
           <div className="app__work-item app__flex" key={index}>
             <div
               className="app__work-img app__flex"
@@ -83,14 +102,14 @@ const Work = () => {
               <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
 
               <div className="app__work-tag app__flex">
-                {/* <p className="p-text">{work.tags[1]}</p> */}
+                <p className="p-text">{work.tags}</p>
               </div>
             </div>
           </div>
         ))}
       </motion.div>
     </>
-  )
-}
+  );
+};
 
-export default AppWrap(Work,'work')
+export default AppWrap(Work,'work');
