@@ -34,7 +34,7 @@ const test=testimonials[currentIndex];
       <>
       <div className="app__testimonial-item app__flex">
         <img src={urlFor(testimonials[currentIndex].imgurl)} alt="testimonials" />
-        <div className="app__testimonial-icon">
+        <div className="app__testimonial-content">
           <p className="p-text">{testimonials[currentIndex].feedback}</p>
           <div>
             <h4 className="bold-text">
