@@ -1,70 +1,85 @@
-import React, { useState } from 'react'
-import './Footer.scss'
+import React, { useState } from 'react';
+
+import { images } from '../../constants';
+// import { AppWrap, MotionWrap } from '../../wrapper';
+import { client } from '../../client';
+import './Footer.scss';
 import MotionWrap from '../../wrapper/MotionWrap';
 import AppWrap from '../../wrapper/AppWrap';
-import { images } from "../../constants"
-import { client } from "../../client";
+
 const Footer = () => {
-  // const [first, setfirst] = useState(second) 
-  const [formData, setformData] = useState({ name: "", email: "", message: "" })
-  const [isFormSubmitted, setisFormSubmitted] = useState(false)
-  const [loading, setloading] = useState(false)
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const { name, email, message } = formData;
+  const { username, email, message } = formData;
 
-  const handleChangeInput = () => {
+  const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    setformData({ ...formData, [name]: value })
-  }
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = () => {
-    setloading(true);
-  }
-  const contact = {
-    _type: 'contact',
-    name: formData.name,
-    email: email,
-    message: message,
-  }
-  client.create(contact).then(() => {
-    setloading(false);
-    setisFormSubmitted(true);
-  })
-  return (
+    setLoading(true);
 
+    const contact = {
+      _type: 'contact',
+      name: formData.username,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    client.create(contact)
+      .then(() => {
+        setLoading(false);
+        setIsFormSubmitted(true);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
     <>
-      <h2 className="head-text">
-        Take a cofee and chat with me
-      </h2>
+      <h2 className="head-text">Take a coffee & chat with me</h2>
+
       <div className="app__footer-cards">
-        <div className="app__footer-card">
+        <div className="app__footer-card ">
           <img src={images.email} alt="email" />
-          <a href="mailto:dev.vaibhavsoni@gmail.com" className='p-text'>dev.vabhavsoni@gmail.com</a>
+          <a href="mailto:hello@micael.com" className="p-text">hello@micael.com</a>
         </div>
         <div className="app__footer-card">
-          <img src={images.mobile} alt="mobile" />
-          <a href="tel:+917706004827" className='p-text'>+917706004827</a>
+          <img src={images.mobile} alt="phone" />
+          <a href="tel:+1 (123) 456-7890" className="p-text">+1 (123) 456-7890</a>
         </div>
       </div>
-      {!isFormSubmitted ?
-
+      {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <div className="app__flex">
-            <input type="text" className='p-text' name='name' placeholder='Your Name' value={name} onChange={handleChangeInput} />
-            <input type="email" className='p-text' name='email' placeholder='Your Email' value={email} onChange={handleChangeInput} />
+            <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
+          </div>
+          <div className="app__flex">
+            <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
           </div>
           <div>
-            <textarea name="message" value={message} className='p-text' placeholder='Your Message' id=""></textarea>
+            <textarea
+              className="p-text"
+              placeholder="Your Message"
+              value={message}
+              name="message"
+              onChange={handleChangeInput}
+            />
           </div>
-          <button className='p-text' type='button' onClick={handleSubmit}>{loading ? "Sending..." : "Send Message"}</button>
-        </div> : <div>
-          <h3 className="head-text">Thank You for getting in</h3>
+          <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? 'Send Message' : 'Sending...'}</button>
         </div>
-      }
+      ) : (
+        <div>
+          <h3 className="head-text">
+            Thank you for getting in touch!
+          </h3>
+        </div>
+      )}
     </>
-
-  )
-}
+  );
+};
 
 export default AppWrap(
   MotionWrap(Footer, 'app__footer'),
