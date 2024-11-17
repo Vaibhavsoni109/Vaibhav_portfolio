@@ -1,23 +1,50 @@
-.main
-{
+.main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    display: none;
-   
+
+display: none;
 }
-#PrSize{
-    border: 1px solid black;
-    margin: 2rem 2rem ;
+
+#PrSize {
+    // border: 1px solid black;
+    margin: 2rem 2rem;
     text-align: center;
-    border-radius:8px ;
-    width: 20rem;
-    background-color: #e9cbd5;
-    
+    border-radius: 52px;
+    width: 22rem;
+    // background-color: #e9d6dda6;
+    background-image: radial-gradient(circle, #a3f8f49c 0%, #e6462a7a 100%);
+
+    h2 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding-top: 2rem;
+        color: #dd2323;
+    }
+    #content {
+        list-style: none;
+        text-align: left;
+       
+        margin: 1rem ;
+        margin-left: 3rem;
+        font-size: 1rem;
+    }
+.btn
+{
+    width: 50%;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 1.3rem;
+    border: 1px solid black;
+ &:hover{
+    box-shadow: 0 0 25px #776a6f;
+ }
+}
     &:hover {
         box-shadow: 0 0 25px #ebc6d4;
-      }
-    
+    }
+
 
 }
+
