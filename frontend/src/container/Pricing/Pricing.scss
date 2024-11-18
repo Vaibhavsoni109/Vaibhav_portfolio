@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
 
-display: none;
+
 }
 
 #PrSize {
@@ -14,37 +14,47 @@ display: none;
     border-radius: 52px;
     width: 22rem;
     // background-color: #e9d6dda6;
-    background-image: radial-gradient(circle, #a3f8f49c 0%, #e6462a7a 100%);
-
+    background-image: linear-gradient(to top, #6bd1a9, #97ca89, #bdc076, #dbb375, #f0a784, #f0ae8b, #f0b493, #f0bb9b, #e1d1a9, #d7e3c5, #daf1e4, #edfbfa);
+    ul {
+        
+        margin-bottom: 2rem;;
+    }
     h2 {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         padding-top: 2rem;
         color: #dd2323;
+       
     }
     #content {
         list-style: none;
         text-align: left;
        
-        margin: 1rem ;
-        margin-left: 3rem;
+        margin: 1rem 0em ;
+        margin-left: 2rem;
         font-size: 1rem;
+        font-weight: 800;
     }
 .btn
 {
     width: 50%;
     font-size: 1.5rem;
-    border-radius: 12px;
+    border-radius: 20px;
     cursor: pointer;
-    margin: 1.3rem;
-    border: 1px solid black;
+    // margin: 1.3rem;
+    margin-bottom: 1rem;
+  border: none;
+    h4 {
+        font-size: 1.5rem;
+        margin:10px 3px;
+    }
  &:hover{
     box-shadow: 0 0 25px #776a6f;
  }
 }
-    &:hover {
-        box-shadow: 0 0 25px #ebc6d4;
-    }
-
+&:hover{
+    box-shadow: 0 0 25px #776a6f;
+ }
+   
 
 }
 
