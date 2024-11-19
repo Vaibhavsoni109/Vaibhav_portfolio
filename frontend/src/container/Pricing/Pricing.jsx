@@ -1,5 +1,8 @@
 import React from 'react'
 import './Pricing.scss';
+import MotionWrap from '../../wrapper/MotionWrap';
+import AppWrap from '../../wrapper/AppWrap';
+
 import { FaCheck } from "react-icons/fa";
 
 const Pricing = () => {
@@ -21,7 +24,8 @@ const Pricing = () => {
                         <li id='content'><FaCheck style={{ color: 'green' }} /><span>Maintenance not included</span></li>
                         <li id='content'><FaCheck style={{ color: 'green' }} /><span>Testing Included</span></li>
                     </ul>
-                    <button className='btn'><h4>Discuss now</h4></button>
+                    <button className='btn'  ><a className='a' href="https://wa.me/7706004827" target="_blank">Discuss Now</a>
+                    </button>
                 </div>
                 <div id="PrSize"> <h2>Medium Pack
                     <h1>Rs. 25k</h1>
@@ -35,7 +39,8 @@ const Pricing = () => {
                         </li>
                         <li id='content'><FaCheck style={{ color: 'green' }} /><span>Free Domain not included</span></li>
                         <li id='content'><FaCheck style={{ color: 'green' }} /><span>Limited Maintenance for 1 month</span></li>
-                    </ul><button className='btn'><h4>Discuss now</h4></button></div>
+                    </ul><button className='btn'  ><a className='a' href="https://wa.me/7706004827" target="_blank">Discuss Now</a>
+                    </button></div>
                 <div id="PrSize"> <h2>Premium Pack
                     <h1>Rs. 10k</h1>
                     <h6>/month</h6>
@@ -48,13 +53,18 @@ const Pricing = () => {
                         </li>
                         <li id='content'><FaCheck style={{ color: 'green' }} /><span>Free Domaint</span></li>
                         <li id='content'><FaCheck style={{ color: 'green' }} /><span>Free Maintenance for 1st year</span></li>
-                    </ul><button className='btn'><h4>Discuss now</h4></button></div>
+                    </ul>
+                    <button className='btn'  ><a className='a' href="https://wa.me/7706004827" target="_blank">Discuss Now</a>
+                    </button>
+                    </div>
             </div>
 
 
         </>
     )
 }
+
+// export default 
 
 export default Pricing
 

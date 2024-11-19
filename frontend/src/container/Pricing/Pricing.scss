@@ -9,7 +9,7 @@
 
 #PrSize {
     // border: 1px solid black;
-    margin: 2rem 2rem;
+    margin: 2rem 1.5rem;
     text-align: center;
     border-radius: 52px;
     width: 22rem;
@@ -36,16 +36,20 @@
     }
 .btn
 {
-    width: 50%;
+width: 60%;
+height: 3rem;
     font-size: 1.5rem;
     border-radius: 20px;
     cursor: pointer;
     // margin: 1.3rem;
     margin-bottom: 1rem;
   border: none;
-    h4 {
+    .a {
         font-size: 1.5rem;
-        margin:10px 3px;
+        color: black;
+        text-decoration: none;
+        object-fit: contain;
+        font-weight: 600;
     }
  &:hover{
     box-shadow: 0 0 25px #776a6f;
