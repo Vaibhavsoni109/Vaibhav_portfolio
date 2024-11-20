@@ -42,7 +42,7 @@ const Pricing = () => {
                     </ul><button className='btn'  ><a className='a' href="https://wa.me/7706004827" target="_blank">Discuss Now</a>
                     </button></div>
                 <div id="PrSize"> <h2>Premium Pack
-                    <h1>Rs. 10k</h1>
+                    <h1>Rs. 50k</h1>
                     <h6>/month</h6>
                 </h2>
                     <br />
