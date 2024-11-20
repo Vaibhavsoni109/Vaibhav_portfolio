@@ -29,19 +29,6 @@ const SocialMedia = () => {
         </a>
         </div>
         <div>
-        
-        {/* <a href="./" 
-        download="CV.pdf" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
-          color:"black",
-          textDecoration: "none",
-         
-        }}>
-       
-         <h3>CV</h3>
-        </a> */}
         <a href="../src/CV/CV.pdf" download="CV.pdf" 
         target="_blank" 
         rel="noopener noreferrer"
