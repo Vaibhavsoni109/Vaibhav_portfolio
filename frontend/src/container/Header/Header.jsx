@@ -69,6 +69,7 @@ const Header = () => {
       </motion.div>
 <div>
   <SocialMedia/>
+  
 </div>
     </div>
   )
