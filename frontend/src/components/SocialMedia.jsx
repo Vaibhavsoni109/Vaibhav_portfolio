@@ -30,7 +30,6 @@ const SocialMedia = () => {
         </div>
         <div>
         <a href="../src/CV/CV.pdf" download="CV.pdf" 
-        target="_blank" 
         rel="noopener noreferrer"
         style={{
           color:"black",
